@@ -17,6 +17,7 @@ const createGallatyElements = galleryItems.map((item) => {
 
 gallery.insertAdjacentHTML('beforeend', createGallatyElements)
 
+
 /* 	var lightbox = new SimpleLightbox('.gallery a', {
 		captionType: 'attr',
 		captionsData: 'title',
