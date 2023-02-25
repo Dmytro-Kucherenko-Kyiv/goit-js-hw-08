@@ -20,4 +20,4 @@ player.setCurrentTime(localStorage.getItem("videoplayer-current-time")).then(fun
             // some other error occurred
             break;
     }
-});
+}); 
