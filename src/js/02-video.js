@@ -5,7 +5,7 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
 function updateTime (timeUpdate) {
-	localStorage.setItem("videoplayer-current-time", JSON.stringify(timeUpdate.seconds))}
+localStorage.setItem("videoplayer-current-time", JSON.stringify(timeUpdate.seconds))}
 
 player.on('timeupdate', throttle((timeUpdate) => updateTime(timeUpdate), 1000));
 
