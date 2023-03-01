@@ -14,17 +14,19 @@ const handleSubmit = (event) => {
 	event.preventDefault();
 
 	const formFields = event.target.elements;
-	console.log(formFields.email.value)
 
-	localStorage.removeItem(STORAGE_KEY);
-	localStorage.setItem(STORAGE_KEY, JSON.stringify({
+	const data = {
 		email: formFields.email.value,
 		message: formFields.message.value
-	}));
-
-	if (refs.email.value === '' || refs.message.value === '') {
-		return alert("Please fill in all the fields!")
 	}
+
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+	console.log(data)
+
+/* 	if (refs.email.value === '' || refs.message.value === '') {
+		return alert("Please fill in all the fields!")
+	} */
 
 	event.currentTarget.reset();
 };
@@ -40,6 +42,18 @@ function autocompleteForm() {
 		refs.email.value = parsedMessage.email;
 		refs.message.value = parsedMessage.message;
 	}
-	
+
 	console.log(savedMessage);
 }
+
+const handleInput = (event) => {
+	const savedMessage = localStorage.getItem(STORAGE_KEY);
+
+	const parsedMessage = JSON.parse(savedMessage);
+
+	localStorage.setItem(STORAGE_KEY, JSON.stringify({
+		...parsedMessage, [event.target.name]: event.target.value
+	}));
+}
+
+refs.form.addEventListener('input', throttle(handleInput, 500));
