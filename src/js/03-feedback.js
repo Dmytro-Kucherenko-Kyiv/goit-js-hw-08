@@ -38,7 +38,7 @@ function autocompleteForm() {
 
 	const parsedMessage = JSON.parse(savedMessage);
 	
-	if (savedMessage) {
+	if (parsedMessage) {
 		refs.email.value = parsedMessage.email;
 		refs.message.value = parsedMessage.message;
 	}
