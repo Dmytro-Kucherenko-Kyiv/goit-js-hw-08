@@ -29,6 +29,7 @@ const handleSubmit = (event) => {
 	} */
 
 	event.currentTarget.reset();
+	localStorage.clear()
 };
 
 refs.form.addEventListener('submit', throttle(handleSubmit, 500));
