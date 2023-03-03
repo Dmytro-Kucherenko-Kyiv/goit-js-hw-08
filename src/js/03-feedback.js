@@ -44,7 +44,7 @@ function autocompleteForm() {
 		refs.message.value = parsedMessage.message;
 	}
 
-	console.log(savedMessage);
+/* 	console.log(savedMessage); */
 }
 
 const handleInput = (event) => {
